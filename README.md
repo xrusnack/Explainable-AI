@@ -105,7 +105,7 @@ Predictions of the “Attractive” attribute by a decision tree trained only on
 ## Project Structure
 
 - `ia176/`
-  - `concept_model.py` — LightningModule for the CBM (ResNet18 + linear head)
+  - `concept_model.py` — LightningModule for the Concpet Model (ResNet18 + linear head)
   - `data/` — DataModule and CelebA dataset
   - `modeling/` — Backbone and head implementations
   - `callbacks/` — Lightning callbacks (prediction saver, evaluator)
