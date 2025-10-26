@@ -13,7 +13,6 @@ The CBM used in this project consists of two main components:
 
 **Head**: Single fully-connected layer (Linear(512 → 39))
 
-
 **Loss**: Binary Cross-Entropy across all 39 attributes
 
 **Optimizer**: AdamW
@@ -23,6 +22,10 @@ The CBM used in this project consists of two main components:
 **Weight Decay**: 1e-4 (only applied to the classifier head)
 
 **Scheduler**: ReduceLROnPlateau (patience: 3, factor: 0.5)
+
+**Epochs**: 5 (best checkpoint)
+
+**Batch Size**: 16
 
 
 #### Decision Tree Classifier
