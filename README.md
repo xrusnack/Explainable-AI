@@ -64,45 +64,18 @@ Feature importances quantify how much each predicted concept contributed to the 
 
 Below are the normalized importance scores as computed by the decision tree:
 
-Bald: 0.636
-Blurry: 0.128
-Chubby: 0.127
-Young: 0.062
-Heavy_Makeup: 0.016
-Wearing_Lipstick: 0.012
-Pointy_Nose: 0.011
-Smiling: 0.004
-Oval_Face: 0.003
-5_o_Clock_Shadow: 0.000
-Arched_Eyebrows: 0.000
-Bags_Under_Eyes: 0.000
-Bangs: 0.000
-Big_Lips: 0.000
-Big_Nose: 0.000
-Black_Hair: 0.000
-Blond_Hair: 0.000
-Brown_Hair: 0.000
-Bushy_Eyebrows: 0.000
-Double_Chin: 0.000
-Eyeglasses: 0.000
-Goatee: 0.000
-Gray_Hair: 0.000
-High_Cheekbones: 0.000
-Male: 0.000
-Mouth_Slightly_Open: 0.000
-Mustache: 0.000
-Narrow_Eyes: 0.000
-No_Beard: 0.000
-Pale_Skin: 0.000
-Receding_Hairline: 0.000
-Rosy_Cheeks: 0.000
-Sideburns: 0.000
-Straight_Hair: 0.000
-Wavy_Hair: 0.000
-Wearing_Earrings: 0.000
-Wearing_Hat: 0.000
-Wearing_Necklace: 0.000
-Wearing_Necktie: 0.000
+| Concept          | Importance |
+| ---------------- | ----------- |
+| Bald             | 0.636 |
+| Blurry           | 0.128 |
+| Chubby           | 0.127 |
+| Young            | 0.062 |
+| Heavy_Makeup     | 0.016 |
+| Wearing_Lipstick | 0.012 |
+| Pointy_Nose      | 0.011 |
+| Smiling          | 0.004 |
+| Oval_Face        | 0.003 |
+| Others           | 0.000 |
 
 Decision Tree Feature Importances
 ![Feature Importances](images/decision_tree.png "Visualization of the Tree's Feature Importances")
@@ -253,9 +226,10 @@ To compute simple pixel-wise gradient saliency map for chosen concept indices an
 ```bash
 uv run python -m analysis.saliency_maps
 ```
-
+Saliency Map for the `Bushy_Eyebrows` concept:
 ![Saliency Map Example](images/saliency_map1_concept11.png "Saliency Map for the `Bushy_Eyebrows` concept")
-![Saliency Map Example](images/saliency_map1_concept11.png "Saliency Map for the `Mouth_Slightly_Open` concept")
+Saliency Map for the `Mouth_Slightly_Open` concept:
+![Saliency Map Example](images/saliency_map1_concept20.png "Saliency Map for the `Mouth_Slightly_Open` concept")
 
 ### 6) Decision Tree Feature Importances
 Experiment config: `configs/experiment/feature_importance.yaml`
