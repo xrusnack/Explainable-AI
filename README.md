@@ -27,6 +27,21 @@ The CBM used in this project consists of two main components:
 
 **Batch Size**: 16
 
+**Augmentations**: 
+To improve robustness and prevent overfitting, the following image transformations were applied during training:
+
+- Resize images to 224×224 (standard for ResNet architectures)
+
+- Random horizontal flip with probability 0.5
+
+- Color jitter: slight changes in brightness (±10%), contrast (±10%), saturation (±10%), and hue (±5%)
+
+- Normalization with mean [0.5063, 0.4258, 0.3832] and standard deviation [0.3105, 0.2903, 0.2897] (computed from the training data in `/preprocessing/normalization_stats`):
+  ```bash
+  uv run python -m preprocessing.normalization_stats
+  ```
+
+For validation and test sets, only resizing and normalization were applied.
 
 #### Decision Tree Classifier
 
