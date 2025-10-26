@@ -1,0 +1,31 @@
+# @package _global_
+defaults:
+  - /data/datasets@data.dataset: CelebA
+  - /data/transforms@data.train.transforms: noop
+  - /data/transforms@data.val.transforms: noop
+  - /data/transforms@data.test.transforms: noop
+  - _self_
+
+data:
+  batch_size: 16
+  num_workers: 10
+  predict_on_train: true
+  dataset:
+    concept_mode: false
+
+decision_tree:
+  _target_: sklearn.tree.DecisionTreeClassifier
+  max_depth: 5
+  criterion: gini
+  splitter: best
+  min_samples_split: 2
+  min_samples_leaf: 1
+  random_state: 42
+
+concepts_path: "/home/jovyan/ia176/predictions/train_concepts/predictions.pt"
+save_path: "/home/jovyan/ia176/models/decision_tree.pkl"
+
+metadata:
+  experiment_name: Concept Model
+  run_name: Train Decision Tree
+  description: "Train a decision tree classifier on the concepts computed from train data."

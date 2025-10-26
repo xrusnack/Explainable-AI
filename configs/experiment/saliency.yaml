@@ -1,0 +1,27 @@
+# @package _global_
+defaults:
+  - /model/backbone: resnet
+  - /model/classifier_head: single_lin_layer
+  - /data/datasets@data.dataset: CelebA
+  - /data/transforms@data.train.transforms: base
+  - /data/transforms@data.val.transforms: base
+  - /data/transforms@data.test.transforms: base
+  - _self_
+
+checkpoint: "/home/jovyan/ia176/models/epoch=4-step=50865.ckpt"
+
+# concept indices to visualize:
+# 'Bushy_Eyebrows' and 'Mouth_Slightly_Open' (indices after dropping `image_id` and `Attractive` columns)
+concepts: [11, 20]
+
+# test sample indices to visualize
+samples: [1, 2]
+
+output_dir: "/home/jovyan/ia176/saliency"
+
+data:
+  batch_size: 1
+  num_workers: 0
+  predict_on_train: false
+  dataset:
+    concept_mode: true # targets are concepts (39)

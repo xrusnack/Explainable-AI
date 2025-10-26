@@ -1,0 +1,39 @@
+__pycache__/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# VSCode
+.vscode/
+
+# PyCharm
+.idea/
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Images
+*.png
+*.jpg
+*.jpeg
+
+# Mlflow
+mlruns/
+mlflow_store/
+mlflow_artifacts/
+*.ckpt
+
+# Logs
+logs/
+*.log

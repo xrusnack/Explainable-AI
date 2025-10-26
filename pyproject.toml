@@ -1,0 +1,25 @@
+[project]
+name = "ia176"
+version = "0.1.0"
+authors = [{ name = "Karolína Rusnačková", email = "525276@mail.muni.cz" }]
+requires-python = ">=3.11"
+readme = "README.md"
+dependencies = [
+    "torch>=2.6.0",
+    "lightning>=2.4.0",
+    "torchmetrics>=1.4.1",
+    "transformers>=4.56.0",
+    "hydra-core>=1.3.2",
+    "tqdm>=4.67.1",
+    "torchvision>=0.24.0",
+    "pandas>=2.3.3",
+    "scikit-learn>=1.7.2",
+    "torch-geometric>=2.7.0",
+    "mlflow>=3.5.1",
+]
+
+[tool.pdm]
+distribution = false
+
+[dependency-groups]
+dev = ["mypy"]

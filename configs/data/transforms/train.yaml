@@ -1,0 +1,19 @@
+_target_: torchvision.transforms.Compose
+transforms:
+  - _target_: torchvision.transforms.Resize
+    size: [224, 224]
+
+  - _target_: torchvision.transforms.RandomHorizontalFlip
+    p: 0.5
+
+  - _target_: torchvision.transforms.ColorJitter
+    brightness: 0.1
+    contrast: 0.1
+    saturation: 0.1
+    hue: 0.05
+
+  - _target_: torchvision.transforms.ToTensor
+
+  - _target_: ia176.data.transforms.Normalize
+    mean: [0.5063, 0.4258, 0.3832]
+    std: [0.3105, 0.2903, 0.2897]

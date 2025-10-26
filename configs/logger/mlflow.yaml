@@ -1,0 +1,5 @@
+_target_: lightning.pytorch.loggers.MLFlowLogger
+experiment_name: ${metadata.experiment_name}
+run_name: ${metadata.run_name}
+save_dir: ./mlruns
+tracking_uri: file:./mlruns

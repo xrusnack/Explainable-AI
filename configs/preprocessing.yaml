@@ -1,0 +1,19 @@
+defaults:
+  - hydra: default
+  - logger: mlflow
+  - /data/datasets@data.dataset: CelebA
+  - /data/transforms@data.train.transforms: noop
+  - /data/transforms@data.val.transforms: noop
+  - /data/transforms@data.test.transforms: noop
+  - _self_
+
+data:
+  batch_size: 16
+  num_workers: 10
+  dataset:
+    concept_mode: true
+
+metadata:
+  experiment_name: Concept Model
+  run_name: Normalization Stats
+  description: "Compute normalization statistics from the train set."

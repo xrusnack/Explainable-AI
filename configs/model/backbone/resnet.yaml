@@ -1,0 +1,2 @@
+_target_: ia176.modeling.backbone.resnet.ResNetBackbone
+parameters: ${backbone_params}

@@ -1,0 +1,8 @@
+defaults:
+  - _self_
+
+_target_: ia176.data.datasets.concept_dataset.CelebADataset
+partition_csv_path: "/home/jovyan/ia176/datasets/face-vae/list_eval_partition.csv"
+images_dir: "/home/jovyan/ia176/datasets/face-vae/img_align_celeba/img_align_celeba"
+metadata_path: "/home/jovyan/ia176/datasets/face-vae/list_attr_celeba.csv"
+concept_mode: ???

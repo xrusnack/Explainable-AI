@@ -1,0 +1,45 @@
+# @package _global_
+defaults:
+  - /model/backbone: resnet
+  - /model/classifier_head: single_lin_layer
+  - /data/datasets@data.dataset: CelebA
+  - /data/transforms@data.train.transforms: base
+  - /data/transforms@data.val.transforms: base
+  - /data/transforms@data.test.transforms: base
+
+checkpoint: "/home/jovyan/ia176/models/epoch=4-step=50865.ckpt"
+
+mode: predict # will be evaluated on the test set (default)
+
+trainer:
+  callbacks:
+    - _target_: ia176.callbacks.cbm_evaluator.EvaluationCallback
+      tree_path: "/home/jovyan/ia176/models/decision_tree.pkl"
+
+model:
+  lr_backbone: 1e-5
+  lr_class_head: 3e-4
+  bottleneck_num_classes: 39
+
+backbone_params:
+  requires_grad: true
+  pretrained: true
+
+class_head_params:
+  input_dim: 512 # must match backbone output features
+  num_concepts: ${model.bottleneck_num_classes}
+
+data:
+  batch_size: 1
+  predict_on_train: false
+  dataset:
+    concept_mode: false # target is the `Attractive` label (0/1)
+
+metadata:
+  experiment_name: Concept Model
+  run_name: "Predictions on the Test Set"
+  description: "Compute test data predictions for the whole CBM Model."
+  hyperparams:
+    lr_backbone: ${model.lr_backbone}
+    lr_class_head: ${model.lr_class_head}
+    bottleneck_num_classes: ${model.bottleneck_num_classes}

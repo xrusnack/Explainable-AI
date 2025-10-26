@@ -1,0 +1,2 @@
+_target_: ia176.modeling.layers.ffn.ConceptPredictorHead
+parameters: ${class_head_params}

@@ -1,0 +1,56 @@
+# @package _global_
+defaults:
+  - _self_
+
+tree_path: "/home/jovyan/ia176/models/decision_tree.pkl"
+output_plot_path: "/home/jovyan/ia176/plots"
+
+decision_tree:
+  _target_: sklearn.tree.DecisionTreeClassifier
+  max_depth: 5
+  criterion: gini
+  splitter: best
+  min_samples_split: 2
+  min_samples_leaf: 1
+  random_state: 42
+
+concepts:
+  - 5_o_Clock_Shadow
+  - Arched_Eyebrows
+  - Bags_Under_Eyes
+  - Bald
+  - Bangs
+  - Big_Lips
+  - Big_Nose
+  - Black_Hair
+  - Blond_Hair
+  - Blurry
+  - Brown_Hair
+  - Bushy_Eyebrows
+  - Chubby
+  - Double_Chin
+  - Eyeglasses
+  - Goatee
+  - Gray_Hair
+  - Heavy_Makeup
+  - High_Cheekbones
+  - Male
+  - Mouth_Slightly_Open
+  - Mustache
+  - Narrow_Eyes
+  - No_Beard
+  - Oval_Face
+  - Pale_Skin
+  - Pointy_Nose
+  - Receding_Hairline
+  - Rosy_Cheeks
+  - Sideburns
+  - Smiling
+  - Straight_Hair
+  - Wavy_Hair
+  - Wearing_Earrings
+  - Wearing_Hat
+  - Wearing_Lipstick
+  - Wearing_Necklace
+  - Wearing_Necktie
+  - Young

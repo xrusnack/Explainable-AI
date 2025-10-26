@@ -1,0 +1,6 @@
+_target_: sklearn.tree.DecisionTreeClassifier
+criterion: ${decision_tree_params.criterion}
+max_depth: ${decision_tree_params.max_depth}
+min_samples_split: ${decision_tree_params.min_samples_split}
+min_samples_leaf: ${decision_tree_params.min_samples_leaf}
+random_state: ${decision_tree_params.random_state}
