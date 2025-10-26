@@ -49,7 +49,7 @@ Prediction of the 39 concepts except the “Attractive” label on the test set:
 
 ### Concept Bottleneck Model
 
-Predictions of the “Attractive” attribute (i.e. Decision tree trained on the predictions of the Concept Model):
+Predictions of the “Attractive” attribute (i.e. Decision tree trained on the predictions of the Concept Model) on the test set:
 
 | Metric                       | Score |
 | ---------------------------- | ----- |
@@ -87,7 +87,7 @@ Decision Tree Feature Importances
 
 ### Ablations
 
-Predictions of the “Attractive” attribute by a decision tree trained only on the top k=3 concepts: **Bald**, **Blurry**, **Chubby**
+Predictions of the “Attractive” attribute by a decision tree trained only on the top k=3 concepts **Bald**, **Blurry**, **Chubby** on the test set:
 
 | Metric                       | Score |
 | ---------------------------- | ----- |
