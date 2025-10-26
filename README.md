@@ -10,23 +10,25 @@ The CBM used in this project consists of two main components:
 
 #### Concept Predictor
 **Backbone**: ResNet-18 (pretrained on ImageNet)
-**Head**: Single fully-connected layer (Linear(512 → 39))
-**Output**: 39 sigmoid-activated concept predictions
 
-##### Training Setup
+**Head**: Single fully-connected layer (Linear(512 → 39))
+
 
 **Loss**: Binary Cross-Entropy across all 39 attributes
+
 **Optimizer**: AdamW
-**Learning rates**:
-    - **Backbone**: 1e-5
-    - **Classifier head**: 3e-4
+
+**Learning rates**: 1e-5 (backbone) and 3e-4 (classifier head)
+    
 **Weight Decay**: 1e-4 (only applied to the classifier head)
-**Scheduler**: ReduceLROnPlateau
-    - **Patience**: 3
-    - **Factor**: 0.5
+
+**Scheduler**: ReduceLROnPlateau (patience: 3, factor: 0.5)
+
 
 #### Decision Tree Classifier
+
 **Max depth**: 5 (to keep the model interpretable)
+
 **Criterion**: Gini impurity
 
 ## Results
@@ -62,7 +64,7 @@ Predictions of the “Attractive” attribute (i.e. Decision tree trained on the
 
 Feature importances quantify how much each predicted concept contributed to the Decision Tree’s final prediction of the “Attractive” attribute. In this experiment, the most influential concepts were Bald, Blurry, and Chubby, which together account for the majority of the tree’s predictive power.
 
-Below are the normalized importance scores as computed by the decision tree:
+Below are the normalized importance scores computed by the decision tree:
 
 | Concept          | Importance |
 | ---------------- | ----------- |
@@ -205,8 +207,10 @@ To evaluate the CBM run:
 uv run python -m ia176 experiment=evaluate_cbm
 ```
 Notes:
-    - Requires a CBM checkpoint `checkpoint: ...` (edit the path)
-    - The callback loads `tree_path` (edit accordingly) and prints Accuracy, AUC, Recall, Precision and F1 Score metrics
+
+- Requires a CBM checkpoint `checkpoint: ...` (edit the path)
+  
+- The callback loads `tree_path` (edit accordingly) and prints Accuracy, AUC, Recall, Precision and F1 Score metrics
 
 If you want to evaluate a tree trained on top-k concepts, use:
 ```bash
@@ -215,8 +219,10 @@ uv run python -m ia176 experiment=evaluate_cbm_top_k
 Experiment config: `configs/experiment/evaluate_cbm_top_k.yaml`
 
 Notes:
-    - Make sure `tree_path` matches your saved model
-    - Set `top_k_indices` to match the training 
+
+- Make sure `tree_path` matches your saved model
+  
+- Set `top_k_indices` to match the training 
 
 
 ### 5) Saliency Maps 
@@ -228,6 +234,7 @@ uv run python -m analysis.saliency_maps
 ```
 Saliency Map for the `Bushy_Eyebrows` concept:
 ![Saliency Map Example](images/saliency_map1_concept11.png "Saliency Map for the `Bushy_Eyebrows` concept")
+
 Saliency Map for the `Mouth_Slightly_Open` concept:
 ![Saliency Map Example](images/saliency_map1_concept20.png "Saliency Map for the `Mouth_Slightly_Open` concept")
 
@@ -239,8 +246,10 @@ Prints feature importances and exports a full tree plot.
 uv run python -m analysis.feature_importance
 ```
 Notes:
-    - Set `tree_path` and `output_plot_path`
-    - `concepts` list defines feature names in the order that was used during training
+
+- Set `tree_path` and `output_plot_path`
+  
+- `concepts` list defines feature names in the order that was used during training
 
 ### 7) Ablations
 Experiment config: `configs/experiment/train_tree_on_top_k.yaml`
@@ -250,6 +259,9 @@ To train a Decision Tree using only a subset of concepts from the saved concept 
 uv run python -m analysis.ablations.train_on_top_k
 ```
 Notes:
-    - `top_k_indices`: indices of the concepts to keep
-    - `num_concepts`: total concept dimensionality (39)
-    - `concepts_path` and `save_path`: input and output files (edit accordingly)
+
+- `top_k_indices`: indices of the concepts to keep
+  
+- `num_concepts`: concept count (39)
+  
+- `concepts_path` and `save_path`: input and output files (edit accordingly)
