@@ -23,7 +23,7 @@ The CBM used in this project consists of two main components:
 
 **Scheduler**: ReduceLROnPlateau (patience: 3, factor: 0.5)
 
-**Epochs**: 5 (best checkpoint)
+**Epochs**: 4 (best checkpoint)
 
 **Batch Size**: 16
 
