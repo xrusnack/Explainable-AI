@@ -173,7 +173,7 @@ Uses ResNet-18 + linear head to predict 39 concepts.
 ```bash
 uv run python -m ia176 experiment=train
 ```
-The training and validation metrics are logged to MLflow, along with the best model (with the lowest validation loss) checkpoint.
+The training and validation metrics are logged to MLflow, the best model (with the lowest validation loss) checkpoint is saved locally.
 
 To evaluate the model on the validation/test sets run:
 ```bash
