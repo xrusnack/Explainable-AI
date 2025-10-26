@@ -121,7 +121,7 @@ Predictions of the “Attractive” attribute by a decision tree trained only on
 
 - `ia176/`
   - `concept_model.py` — LightningModule for the Concept Model (ResNet18 + linear head)
-  - `data/` — DataModule and CelebA dataset
+  - `data/` — DataModule, CelebA dataset and data transforms
   - `modeling/` — Backbone and head implementations
   - `callbacks/` — Lightning callbacks (prediction saver, evaluator)
   - `decision_tree.py` — Train a Decision Tree on saved concepts
